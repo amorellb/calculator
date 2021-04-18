@@ -2,6 +2,7 @@ package com.calculator;
 
 import com.calculator.service.Operations;
 import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -23,8 +24,12 @@ public class OperationsTest {
     }
 
     @Test
-    void normalDivision() {
+    void normalDivision() throws Exception {
         assertEquals(2.0, Operations.division(4.0, 2.0));
     }
 
+    @Test
+    void normalRemainder() {
+        assertEquals(0.0, Operations.remainder(4.0, 2.0));
+    }
 }

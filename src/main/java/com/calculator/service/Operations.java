@@ -14,7 +14,15 @@ public class Operations {
         return firstNumber * secondNumber;
     }
 
-    public static Double division(Double firstNumber, Double secondNumber) {
-        return firstNumber / secondNumber;
+    public static Double division(Double firstNumber, Double secondNumber) throws Exception {
+        if (secondNumber == 0) {
+            throw new Exception("Division by 0");
+        } else {
+            return firstNumber / secondNumber;
+        }
+    }
+
+    public static Double remainder(Double firstNumber, Double secondNumber) {
+        return firstNumber % secondNumber;
     }
 }
