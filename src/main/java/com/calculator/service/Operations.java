@@ -13,12 +13,12 @@ public class Operations {
     public static Double multiplication(Double firstNumber, Double secondNumber) {
         return firstNumber * secondNumber;
     }
-
+    /*TODO division by zero*/
     public static Double division(Double firstNumber, Double secondNumber) throws Exception {
-        if (secondNumber == 0) {
-            throw new Exception("Division by 0");
-        } else {
+        if (secondNumber != 0) {
             return firstNumber / secondNumber;
+        } else {
+            throw new Exception("Division by 0");
         }
     }
 

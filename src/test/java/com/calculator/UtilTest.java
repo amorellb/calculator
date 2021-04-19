@@ -10,30 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class UtilTest {
 
-    /*@ParameterizedTest
-    @ValueSource(strings = {"addition", "subtraction", "multiplication", "division", "remainder"})
-    void askOperationOutput(String operation) throws Exception {
-        switch (operation) {
-            case "addition":
-                assertEquals("addition", Util.askOperation());
-                break;
-            case "subtraction":
-                assertEquals("subtraction", Util.askOperation());
-                break;
-            case "multiplication":
-                assertEquals("multiplication", Util.askOperation());
-                break;
-            case "division":
-                assertEquals("division", Util.askOperation());
-                break;
-            case "remainder":
-                assertEquals("remainder", Util.askOperation());
-                break;
-            default:
-                break;
-        }
-    }*/
-
     @ParameterizedTest
     @ValueSource(strings = {"addition", "subtraction", "multiplication", "division", "remainder"})
     void doOperationOutput(String operation) throws Exception {
@@ -52,6 +28,11 @@ public class UtilTest {
             default:
                 break;
         }
+    }
+
+    @Test
+    void checkIsBoolean() {
+        assertTrue(Util.isDouble("5.0"));
     }
 
     @ParameterizedTest

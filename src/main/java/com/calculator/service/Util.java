@@ -2,7 +2,6 @@ package com.calculator.service;
 
 import com.calculator.data.PossibleOperations;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Util {
@@ -41,12 +40,30 @@ public class Util {
     }
 
     public static Double askNumber() throws Exception {
+        String number;
         try {
             Scanner input = new Scanner(System.in);
-            input.useLocale(Locale.US);
-            return input.nextDouble();
+            number = input.nextLine();
+            while (!isDouble(number)) {
+                System.out.println("Not a valid number");
+                System.out.println(" ");
+                System.out.println("------------------------------------------------");
+                System.out.println("                 Write a number                 ");
+                System.out.println("------------------------------------------------");
+                number = input.nextLine();
+            }
         } catch (Exception ex) {
             throw new Exception("Not a valid number");
+        }
+        return Double.parseDouble(number);
+    }
+
+    public static Boolean isDouble(String input) {
+        try {
+            Double.parseDouble(input);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
         }
     }
 

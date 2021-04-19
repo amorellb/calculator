@@ -38,6 +38,7 @@ public class CalculatorApp {
 
                 if (!Util.isAValidOperationInput(operation)) {
                     System.out.println("Error: Not a valid operation");
+                    System.out.println(" ");
                 }
             } while (!Util.isAValidOperationInput(operation));
 
@@ -74,11 +75,17 @@ public class CalculatorApp {
                         secondNumber = Util.askNumber();
                         break;
                     case "division":
-                        System.out.println(" ");
-                        System.out.println("------------------------------------------------");
-                        System.out.println(" By which number would you like to divide " + firstNumber + "?");
-                        System.out.println("------------------------------------------------");
-                        secondNumber = Util.askNumber();
+                        do {
+                            System.out.println(" ");
+                            System.out.println("------------------------------------------------");
+                            System.out.println(" By which number would you like to divide " + firstNumber + "?");
+                            System.out.println("------------------------------------------------");
+                            secondNumber = Util.askNumber();
+                            if (secondNumber == 0) {
+                                System.out.println(" ");
+                                System.out.println("Can't divide by 0");
+                            }
+                        } while (secondNumber == 0);
                         break;
                     case "remainder":
                         System.out.println(" ");
