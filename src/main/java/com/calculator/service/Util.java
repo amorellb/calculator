@@ -10,18 +10,26 @@ public class Util {
         Double result = 0.0;
         switch (operation.toLowerCase()) {
             case "addition":
+            case "sumar":
+            case "suma":
                 result = Operations.addition(firstNumber, secondNumber);
                 break;
             case "subtraction":
+            case "restar":
+            case "resta":
                 result = Operations.subtraction(firstNumber, secondNumber);
                 break;
             case "multiplication":
+            case "multiplicar":
+            case "multiplicacion":
                 result = Operations.multiplication(firstNumber, secondNumber);
                 break;
             case "division":
+            case "dividir":
                 result = Operations.division(firstNumber, secondNumber);
                 break;
             case "remainder":
+            case "resto":
                 result = Operations.remainder(firstNumber, secondNumber);
                 break;
             default:
