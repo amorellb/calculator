@@ -11,6 +11,7 @@ public class CalculatorApp {
 
         System.out.println(" ");
 
+        /*Do-while mediante el que se le pedirá al usuario qué operación quiere realizar de las disponibles*/
         String operation;
         do {
             System.out.println("------------------------------------------------");
@@ -34,10 +35,14 @@ public class CalculatorApp {
             }
         } while (!Util.isAValidOperationInput(operation));
 
+        /*While mediante el que controlamos el proceso del cálculo mientras la opción seleccionada sea válida
+        * y ésta no sea la de apagado*/
         while (Util.isAValidOperationInput(operation) &&
                 (!operation.equals(PossibleOperations.SHUTDOWN.toString().toLowerCase()) &&
                         !operation.equals(PossibleOperations.APAGAR.toString().toLowerCase()))) {
 
+            /*Pedimos los valores con los que se realizará el cálculo seleccionado. Estos valores se pedirán mientras
+            * se introduzca una opción no válida*/
             double firstNumber;
             double secondNumber = 0.0;
             do {
@@ -48,6 +53,8 @@ public class CalculatorApp {
                 System.out.println("------------------------------------------------");
                 firstNumber = Util.askNumber();
 
+                /*Switch para mostrar un mensaje específico en función del tipo de operación seleccionada, al
+                * pedir el segundo valor de la operación*/
                 switch (operation) {
                     case "addition":
                     case "sumar":
@@ -109,8 +116,11 @@ public class CalculatorApp {
                 }
             } while (!Util.isAValidNumberInput(firstNumber) || !Util.isAValidNumberInput(secondNumber));
 
+            /*Realizamos la operación*/
             Double result = Util.doOperation(operation, firstNumber, secondNumber);
 
+            /*Switch que mostrará un mensaje específico en función de la operación seleccionada para mostrar el
+            * resultado de la operación por pantalla*/
             switch (operation) {
                 case "addition":
                 case "sumar":
@@ -157,6 +167,7 @@ public class CalculatorApp {
 
             System.out.println(" ");
 
+            /*Una vez finalizada la operación se pide al usuario si quiere volver a realizar otra operación*/
             System.out.println("------------------------------------------------");
             System.out.println("    Do you want to calculate something else?    ");
             System.out.println("------------------------------------------------");
@@ -166,6 +177,7 @@ public class CalculatorApp {
 
         System.out.println(" ");
 
+        /*Mensaje que se mostrará al apagar la calculadora*/
         System.out.println("************************************************");
         System.out.println("*      To much maths for today? See you!       *");
         System.out.println("************************************************");

@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/*Clase para realizar tests a los métodos de la clase Util*/
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class UtilTest {
 

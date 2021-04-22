@@ -1,11 +1,12 @@
 package com.calculator.service;
 
 import com.calculator.data.PossibleOperations;
-
 import java.util.Scanner;
 
+/*Clase que contiene algunos métodos útiles para la ejecución del programa*/
 public class Util {
 
+    /*Método que realizará la operación específica en función del tipo de operación seleccionada por el usuario*/
     public static Double doOperation(String operation, Double firstNumber, Double secondNumber) throws Exception {
         Double result = 0.0;
         switch (operation.toLowerCase()) {
@@ -38,6 +39,8 @@ public class Util {
         return result;
     }
 
+    /*Método para recoger el valor de la petición del tipo de operación introducido por el usuario.
+    * En caso de fallo mostrará un mensaje específico*/
     public static String askOperation() throws Exception {
         try {
             Scanner input = new Scanner(System.in);
@@ -47,6 +50,8 @@ public class Util {
         }
     }
 
+    /*Método para recoger el valor de la petición del número introducido por el usuario.
+     * En caso de fallo mostrará un mensaje específico*/
     public static Double askNumber() throws Exception {
         String number;
         try {
@@ -66,6 +71,7 @@ public class Util {
         return Double.parseDouble(number);
     }
 
+    /*Método para validar que el input es de tipo double*/
     public static Boolean isDouble(String input) {
         try {
             Double.parseDouble(input);
@@ -75,6 +81,8 @@ public class Util {
         }
     }
 
+    /*Método para validar que el usuario ha introducido una de las opciones correctas para elegir la operación
+    * a realizar*/
     public static Boolean isAValidOperationInput(String input) {
         boolean flag = false;
         for (int i = 0; i < PossibleOperations.values().length; i++) {
@@ -85,11 +93,8 @@ public class Util {
         return flag;
     }
 
+    /*Método para validar que el input es un valor numérico*/
     public static Boolean isAValidNumberInput(Double input) {
-        boolean flag = false;
-        if (!input.isNaN() || !input.isInfinite()) {
-            flag = true;
-        }
-        return flag;
+        return !input.isNaN() || !input.isInfinite();
     }
 }
