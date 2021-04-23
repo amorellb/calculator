@@ -46,7 +46,7 @@ public class Util {
             Scanner input = new Scanner(System.in);
             return input.nextLine().toLowerCase();
         } catch (Exception exp) {
-            throw new Exception("Not a valid operation");
+            throw new Exception("Error: Not a valid operation");
         }
     }
 
@@ -58,15 +58,15 @@ public class Util {
             Scanner input = new Scanner(System.in);
             number = input.nextLine();
             while (!isDouble(number)) {
-                System.out.println("Not a valid number");
+                System.out.println("\u001B[41mError: Not a valid number\u001B[0m");
                 System.out.println(" ");
                 System.out.println("------------------------------------------------");
-                System.out.println("                 Write a number                 ");
+                System.out.println("                 \u001B[36mWrite a number\u001B[0m");
                 System.out.println("------------------------------------------------");
                 number = input.nextLine();
             }
         } catch (Exception ex) {
-            throw new Exception("Not a valid number");
+            throw new Exception("Error: Not a valid number");
         }
         return Double.parseDouble(number);
     }
